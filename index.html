@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理学习笔记 - Feynman 讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .chapter-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(102, 126, 234, 0.3), 0 10px 10px -5px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .placeholder-card {
+            transition: all 0.3s ease;
+            border: 2px dashed #cbd5e0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+        
+        .placeholder-card:hover {
+            border-color: #a0aec0;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+        }
+        
+        .atom-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .content-wrapper {
+            max-width: 1400px;
+        }
+        
+        .coming-soon {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coming-soon::after {
+            content: '即将更新';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-20 shadow-2xl">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="relative">
+                        <svg class="w-24 h-24 atom-float" fill="currentColor" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="2" fill="white"/>
+                            <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+                            <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5" opacity="0.6" transform="rotate(60 10 10)"/>
+                            <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5" opacity="0.6" transform="rotate(120 10 10)"/>
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="text-6xl font-bold mb-4">物理学习笔记</h1>
+                <p class="text-2xl text-purple-100 mb-2">The Feynman Lectures on Physics</p>
+                <p class="text-lg text-purple-200">探索原子、能量与宇宙的奥秘</p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2">
+                        <span class="text-sm">📚 深度学习</span>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2">
+                        <span class="text-sm">🔬 科学探索</span>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2">
+                        <span class="text-sm">💡 思维启发</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 content-wrapper">
+        
+        <!-- Introduction Section -->
+        <section class="mb-16 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">欢迎来到物理学的世界</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                这里汇集了 Feynman 物理学讲义的学习笔记，从原子的微观世界到宇宙的宏观结构，
+                让我们一起探索自然界最基本的规律和最深刻的真理。
+            </p>
+        </section>
+
+        <!-- Chapter List Section -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 flex items-center">
+                    <span class="mr-3">📖</span>
+                    章节目录
+                </h2>
+                <div class="text-sm text-gray-500">
+                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full">共 2 章可读</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Chapter 1 - Active -->
+                <a href="physics/ch1-atom.html" class="chapter-card bg-white rounded-xl shadow-lg p-8 block">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl">🔬</span>
+                        <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium">已完成</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">第一章：运动中的原子</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        探索物质的本质，理解原子假设——科学中最重要的知识。了解原子如何构成我们周围的一切，从水滴到生命本身。
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-50 text-purple-600 text-xs px-3 py-1 rounded-full">原子理论</span>
+                        <span class="bg-blue-50 text-blue-600 text-xs px-3 py-1 rounded-full">物质三态</span>
+                        <span class="bg-pink-50 text-pink-600 text-xs px-3 py-1 rounded-full">化学反应</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-medium">
+                        <span>阅读章节</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Chapter 2 - Active -->
+                <a href="physics/ch2-basic-physics.html" class="chapter-card bg-white rounded-xl shadow-lg p-8 block">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl">⚛️</span>
+                        <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium">已完成</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">第二章：基础物理学</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        探索物理学的基本概念：从1920年前的经典物理，到量子革命，再到粒子物理的前沿。理解自然界的四种基本相互作用。
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-50 text-purple-600 text-xs px-3 py-1 rounded-full">量子力学</span>
+                        <span class="bg-blue-50 text-blue-600 text-xs px-3 py-1 rounded-full">电磁波谱</span>
+                        <span class="bg-pink-50 text-pink-600 text-xs px-3 py-1 rounded-full">基本粒子</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-medium">
+                        <span>阅读章节</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Chapter 3 - Placeholder -->
+                <div class="placeholder-card coming-soon rounded-xl shadow-md p-8">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl opacity-30">🌊</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-3">第三章：物理与其他科学</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        理解物理学与化学、生物学等学科的关系...
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-400 text-xs px-3 py-1 rounded-full">敬请期待</span>
+                    </div>
+                </div>
+
+                <!-- Chapter 4 - Placeholder -->
+                <div class="placeholder-card coming-soon rounded-xl shadow-md p-8">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl opacity-30">🔭</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-3">第四章：能量守恒</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        探索宇宙中最基本的守恒定律之一...
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-400 text-xs px-3 py-1 rounded-full">敬请期待</span>
+                    </div>
+                </div>
+
+                <!-- Chapter 5 - Placeholder -->
+                <div class="placeholder-card coming-soon rounded-xl shadow-md p-8">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl opacity-30">⚡</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-3">第五章：时间与距离</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        理解时空的本质和测量方法...
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-400 text-xs px-3 py-1 rounded-full">敬请期待</span>
+                    </div>
+                </div>
+
+                <!-- Chapter 6 - Placeholder -->
+                <div class="placeholder-card coming-soon rounded-xl shadow-md p-8">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-5xl opacity-30">🌌</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-400 mb-3">第六章：概率</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        探索量子世界中的概率性质...
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-400 text-xs px-3 py-1 rounded-full">敬请期待</span>
+                    </div>
+                </div>
+
+                <!-- More placeholders for future chapters -->
+                <div class="placeholder-card rounded-xl shadow-md p-8">
+                    <div class="flex items-center justify-center h-full">
+                        <div class="text-center">
+                            <span class="text-6xl opacity-20 block mb-4">➕</span>
+                            <p class="text-gray-400 font-medium">更多章节</p>
+                            <p class="text-gray-300 text-sm mt-2">持续更新中...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placeholder-card rounded-xl shadow-md p-8">
+                    <div class="flex items-center justify-center h-full">
+                        <div class="text-center">
+                            <span class="text-6xl opacity-20 block mb-4">📝</span>
+                            <p class="text-gray-400 font-medium">学习笔记</p>
+                            <p class="text-gray-300 text-sm mt-2">即将添加</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placeholder-card rounded-xl shadow-md p-8">
+                    <div class="flex items-center justify-center h-full">
+                        <div class="text-center">
+                            <span class="text-6xl opacity-20 block mb-4">🧪</span>
+                            <p class="text-gray-400 font-medium">实验与应用</p>
+                            <p class="text-gray-300 text-sm mt-2">敬请期待</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Feature Highlights -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
+                <span class="mr-3">✨</span>
+                学习特色
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">深入浅出</h3>
+                    <p class="text-gray-600 text-sm">用直观的语言解释复杂的物理概念</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">可视化呈现</h3>
+                    <p class="text-gray-600 text-sm">图文并茂，让抽象概念变得具体</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="text-4xl mb-4">💭</div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">哲学思考</h3>
+                    <p class="text-gray-600 text-sm">探讨物理学背后的深刻哲学意义</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">持续更新</h3>
+                    <p class="text-gray-600 text-sm">不断添加新的章节和学习资源</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-2xl p-12 text-white text-center pulse-slow">
+            <svg class="w-16 h-16 mx-auto mb-6 opacity-50" fill="currentColor" viewBox="0 0 32 32">
+                <path d="M10 8c-3.3 0-6 2.7-6 6s2.7 6 6 6c1.4 0 2.6-.5 3.6-1.3-.4 2.7-2.5 5.3-5.6 6.3l1 2c5-1.3 8-5.7 8-10 0-3.3-2.7-6-6-6zm14 0c-3.3 0-6 2.7-6 6s2.7 6 6 6c1.4 0 2.6-.5 3.6-1.3-.4 2.7-2.5 5.3-5.6 6.3l1 2c5-1.3 8-5.7 8-10 0-3.3-2.7-6-6-6z"/>
+            </svg>
+            <blockquote class="text-2xl md:text-3xl font-light mb-6 leading-relaxed">
+                如果在某次大灾难中，所有的科学知识都将被毁灭，<br>只有一句话能传给下一代，<br>那应该是什么？
+            </blockquote>
+            <p class="text-xl md:text-2xl font-bold text-purple-100">
+                万物皆由原子构成
+            </p>
+            <p class="text-lg text-purple-200 mt-4">—— Richard Feynman</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12 mt-20">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="mb-6">
+                <svg class="w-12 h-12 mx-auto opacity-50" fill="currentColor" viewBox="0 0 20 20">
+                    <circle cx="10" cy="10" r="2" fill="white"/>
+                    <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5"/>
+                    <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5" transform="rotate(60 10 10)"/>
+                    <ellipse cx="10" cy="10" rx="8" ry="3" fill="none" stroke="white" stroke-width="0.5" transform="rotate(120 10 10)"/>
+                </svg>
+            </div>
+            <p class="text-purple-100 text-lg mb-2">物理学习笔记</p>
+            <p class="text-purple-200 text-sm">基于 The Feynman Lectures on Physics</p>
+            <p class="text-purple-300 text-xs mt-4">探索、学习、思考 | 科学永无止境</p>
+        </div>
+    </footer>
+
+</body>
+</html>

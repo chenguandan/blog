@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章：基础物理学 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .key-point {
+            border-left: 4px solid #667eea;
+            background: linear-gradient(to right, rgba(102, 126, 234, 0.1), transparent);
+        }
+        
+        .atom-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .content-wrapper {
+            max-width: 1200px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: -20px;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+        
+        .spectrum-bar {
+            height: 30px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899, #ef4444, #f97316, #eab308);
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                            </svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4 atom-animation">第二章：基础物理学</h1>
+                    <p class="text-xl text-purple-100">Basic Physics - 探索自然的基本规律</p>
+                </div>
+                <div class="hidden md:block">
+                    <svg class="w-32 h-32 text-white opacity-20" fill="currentColor" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="2"/>
+                        <circle cx="5" cy="10" r="1.5"/>
+                        <circle cx="15" cy="10" r="1.5"/>
+                        <circle cx="10" cy="5" r="1.5"/>
+                        <circle cx="10" cy="15" r="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        
+        <!-- Introduction -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-5xl">🎯</span>
+                </div>
+                <div class="ml-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">理解自然的游戏规则</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                        本章探讨物理学最基本的概念和思想。Feynman 用了一个精彩的比喻：理解自然就像观看众神下的一盘国际象棋比赛。
+                    </p>
+                    <div class="key-point p-4 rounded-lg">
+                        <p class="text-gray-800 leading-relaxed">
+                            <strong class="text-purple-600">国际象棋比喻：</strong>
+                            我们不知道游戏规则，只能观看。如果观察足够久，或许能弄清楚一些规则。这些规则就是我们所说的<strong>基础物理学</strong>。即使我们知道所有规则，也可能无法理解为什么走某一步棋，因为游戏太复杂了，而我们的思维有限。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 flex items-center">
+                <span class="mr-3">📜</span>
+                物理学的历史演进
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">1920年之前的物理学</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <p><strong class="text-blue-700">舞台：</strong>三维欧几里得空间 + 时间</p>
+                            <p><strong class="text-blue-700">演员：</strong>粒子（92种原子）</p>
+                            <p><strong class="text-blue-700">力：</strong>
+                                <span class="inline-block bg-blue-100 px-3 py-1 rounded-full text-sm mr-2">复杂的相互作用力</span>
+                                <span class="inline-block bg-blue-100 px-3 py-1 rounded-full text-sm">引力（平方反比定律）</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-purple-900 mb-3">电磁学的发现</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <p>电力比引力强大得多！想象两粒相距30米的沙子，如果电荷不平衡，它们之间的力将达到<strong class="text-purple-700">300万吨</strong>！</p>
+                            <div class="bg-white p-4 rounded-lg mt-3">
+                                <p class="text-sm font-medium text-purple-800 mb-2">正负电荷规则：</p>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 同性相斥，异性相吸</li>
+                                    <li>• 原子核（正电荷）+ 电子（负电荷）</li>
+                                    <li>• 电荷数决定化学性质</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-pink-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-pink-900 mb-3">1920年后：量子革命</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <p>爱因斯坦改变了时空观念，量子力学彻底颠覆了我们对微观世界的理解。</p>
+                            <div class="bg-white p-4 rounded-lg mt-3">
+                                <p class="font-bold text-pink-700 mb-2">重大突破：</p>
+                                <ul class="text-sm space-y-2">
+                                    <li>✓ 时空融合为四维时空</li>
+                                    <li>✓ 引力是弯曲时空的表现</li>
+                                    <li>✓ 牛顿定律在原子尺度失效</li>
+                                    <li>✓ 波粒二象性</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Electromagnetic Spectrum -->
+        <section class="mb-12 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="mr-3">🌈</span>
+                电磁波谱：一切都是频率
+            </h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+                电磁场能够传播波动，这些波的唯一区别就是<strong class="text-purple-600">振荡频率</strong>。从低频到高频，它们都是同一种现象的不同表现。
+            </p>
+            
+            <div class="spectrum-bar mb-6"></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <div class="text-2xl mb-2">📻</div>
+                    <h4 class="font-bold text-gray-800 mb-1">无线电波</h4>
+                    <p class="text-sm text-gray-600">10² Hz - 建筑电流</p>
+                    <p class="text-sm text-gray-600">10⁵-10⁶ Hz - 广播</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <div class="text-2xl mb-2">📺</div>
+                    <h4 class="font-bold text-gray-800 mb-1">电视/雷达</h4>
+                    <p class="text-sm text-gray-600">10⁸ Hz - FM/TV</p>
+                    <p class="text-sm text-gray-600">10¹⁰ Hz - 雷达</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <div class="text-2xl mb-2">🌞</div>
+                    <h4 class="font-bold text-gray-800 mb-1">可见光</h4>
+                    <p class="text-sm text-gray-600">5×10¹⁴-10¹⁵ Hz</p>
+                    <p class="text-sm text-purple-600 font-medium">人眼可见！</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <div class="text-2xl mb-2">☢️</div>
+                    <h4 class="font-bold text-gray-800 mb-1">X射线/伽马射线</h4>
+                    <p class="text-sm text-gray-600">10¹⁸ Hz - X射线</p>
+                    <p class="text-sm text-gray-600">10²⁷ Hz - 宇宙射线</p>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-white p-4 rounded-lg">
+                <p class="text-sm text-gray-700">
+                    <strong class="text-purple-600">重要洞察：</strong>
+                    高频率的电磁波表现得更像粒子，低频率的更像波。这引出了量子力学的核心概念——波粒二象性。
+                </p>
+            </div>
+        </section>
+
+        <!-- Quantum Mechanics Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center">
+                <span class="mr-3">⚛️</span>
+                量子物理：颠覆常识的世界
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="section-card bg-white rounded-xl shadow-md p-8">
+                    <div class="text-4xl mb-4">🎲</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">不确定性原理</h3>
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-4">
+                        <p class="text-center text-2xl font-bold text-purple-700 mb-2">Δx · Δp ≥ ℏ/2</p>
+                        <p class="text-center text-sm text-gray-600">位置不确定度 × 动量不确定度 ≥ 常数</p>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        我们<strong>无法同时精确知道</strong>一个粒子的位置和速度。这不是测量技术的问题，而是自然的根本性质！
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-700">
+                            <strong class="text-blue-700">为什么原子这么大？</strong>
+                            如果电子掉到原子核上，我们就能精确知道它的位置，那么不确定性原理要求它必须有很大的动量和动能，它会立即飞出去。所以电子保持一定距离，进行最小限度的"抖动"。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section-card bg-white rounded-xl shadow-md p-8">
+                    <div class="text-4xl mb-4">🌊</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">波粒二象性</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        过去被认为是波的东西也表现得像粒子，粒子也表现得像波。事实上，<strong class="text-purple-600">一切都以同样的方式行为</strong>。
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg">
+                            <span class="text-2xl mr-3">💡</span>
+                            <div>
+                                <p class="font-bold text-blue-800">低频</p>
+                                <p class="text-sm text-gray-600">场和波的特性更明显</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg">
+                            <span class="text-2xl mr-3">⚡</span>
+                            <div>
+                                <p class="font-bold text-purple-800">高频</p>
+                                <p class="text-sm text-gray-600">粒子特性更明显</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                        <p class="text-sm text-gray-700">
+                            量子力学统一了场、波和粒子的概念，把它们融为一体！
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section-card bg-white rounded-xl shadow-md p-8">
+                    <div class="text-4xl mb-4">🎰</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">概率性本质</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        量子力学告诉我们：<strong class="text-red-600">不可能精确预测</strong>在任何情况下会发生什么。
+                    </p>
+                    <div class="bg-red-50 p-4 rounded-lg mb-4">
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            例如，我们可以让一个原子准备好发射光，但<strong>无法预测它何时会发射</strong>，或者多个原子中哪一个会发射。这不是因为有我们没观察到的"内部齿轮"，而是自然的根本特性。
+                        </p>
+                    </div>
+                    <p class="text-gray-600 text-sm italic">
+                        这颠覆了传统科学哲学："相同条件必定产生相同结果"不再成立，我们只能得到统计平均值。
+                    </p>
+                </div>
+
+                <div class="section-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-md p-8">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">量子电动力学</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        这是我们在物理学中<strong class="text-green-700">最伟大的成功</strong>！一个理论解释了几乎所有日常现象。
+                    </p>
+                    <div class="bg-white p-4 rounded-lg space-y-2">
+                        <p class="text-sm text-gray-700">✓ 台球碰撞规律</p>
+                        <p class="text-sm text-gray-700">✓ 一氧化碳的比热</p>
+                        <p class="text-sm text-gray-700">✓ 霓虹灯的颜色</p>
+                        <p class="text-sm text-gray-700">✓ 盐的密度</p>
+                        <p class="text-sm text-gray-700">✓ 氢氧化合反应</p>
+                        <p class="text-sm text-gray-700">✓ <strong>所有化学和生命现象</strong></p>
+                    </div>
+                    <div class="mt-4 p-4 bg-green-100 rounded-lg">
+                        <p class="text-sm font-medium text-green-800">
+                            新粒子：光子（photon）—— 光的粒子形式
+                        </p>
+                        <p class="text-sm text-gray-700 mt-2">
+                            量子电动力学还预言了反粒子的存在：电子的反粒子是正电子（positron）。事实上，每种粒子都有其反粒子！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Particles Section -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="mr-3">🔬</span>
+                粒子动物园：30多种基本粒子
+            </h2>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+                到1960年代，物理学家们发现了约30种"基本"粒子。我们还不完全理解它们之间的关系，这表明我们的理论还不够完善。
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                        <span class="mr-2">⚫</span>
+                        重子（Baryons）
+                    </h3>
+                    <p class="text-sm text-gray-700 mb-3">质量较重的粒子，参与强相互作用</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="bg-white p-2 rounded">质子 (p) - 938 MeV</div>
+                        <div class="bg-white p-2 rounded">中子 (n) - 940 MeV</div>
+                        <div class="bg-white p-2 rounded">Lambda (Λ) - 1115 MeV</div>
+                        <div class="bg-white p-2 rounded">Sigma (Σ⁺, Σ⁰, Σ⁻)</div>
+                        <div class="bg-white p-2 rounded">Xi (Ξ⁰, Ξ⁻)</div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-purple-900 mb-4 flex items-center">
+                        <span class="mr-2">⚪</span>
+                        介子（Mesons）
+                    </h3>
+                    <p class="text-sm text-gray-700 mb-3">中等质量，传递核力的粒子</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="bg-white p-2 rounded">π介子 (π⁺, π⁰, π⁻)</div>
+                        <div class="bg-white p-2 rounded">K介子 (K⁺, K⁰, K⁻)</div>
+                        <div class="bg-white p-2 rounded">η介子</div>
+                        <div class="bg-white p-2 rounded">ω介子 - 780 MeV</div>
+                    </div>
+                    <div class="mt-3 bg-purple-200 p-2 rounded text-xs">
+                        <strong>汤川秀树的预言：</strong>核力通过介子传递
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-pink-900 mb-4 flex items-center">
+                        <span class="mr-2">✨</span>
+                        轻子（Leptons）
+                    </h3>
+                    <p class="text-sm text-gray-700 mb-3">不参与强相互作用的轻粒子</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="bg-white p-2 rounded">电子 (e⁻) - 0.511 MeV</div>
+                        <div class="bg-white p-2 rounded">μ子 - 106 MeV</div>
+                        <div class="bg-white p-2 rounded">中微子 (ν) - 0质量</div>
+                        <div class="bg-white p-2 rounded opacity-50">（两种中微子）</div>
+                    </div>
+                    <div class="mt-3 bg-pink-200 p-2 rounded text-xs">
+                        <strong>谜团：</strong>μ子除了更重，其他都和电子一样。为什么需要它？
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-6">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center">
+                    <span class="mr-2">🔢</span>
+                    新的分类方法："奇异数"(Strangeness)
+                </h4>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    盖尔曼（美国）和西岛（日本）独立提出了新的粒子分类方案，引入了一个叫做"奇异数"的守恒量，类似于电荷。这就像门捷列夫的元素周期表，帮助我们理解粒子之间的关系模式。
+                </p>
+            </div>
+        </section>
+
+        <!-- Four Forces -->
+        <section class="mb-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl shadow-lg p-8 text-white">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <span class="mr-3">💫</span>
+                自然界的四种基本相互作用
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold">强相互作用（核力）</h3>
+                        <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">强度: 1</span>
+                    </div>
+                    <p class="text-purple-100 text-sm mb-2">束缚质子和中子在原子核中</p>
+                    <p class="text-purple-200 text-xs">规律：完全未知（但有一些已知规则）</p>
+                </div>
+
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold">电磁相互作用</h3>
+                        <span class="bg-blue-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">强度: 10⁻²</span>
+                    </div>
+                    <p class="text-purple-100 text-sm mb-2">光子与带电粒子的耦合</p>
+                    <p class="text-green-300 text-xs font-medium">✓ 规律：完全已知（量子电动力学）</p>
+                </div>
+
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold">弱相互作用</h3>
+                        <span class="bg-orange-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">强度: 10⁻⁵</span>
+                    </div>
+                    <p class="text-purple-100 text-sm mb-2">β衰变，中子衰变成质子、电子和中微子</p>
+                    <p class="text-yellow-300 text-xs">规律：部分已知</p>
+                </div>
+
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold">引力</h3>
+                        <span class="bg-red-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold">强度: 10⁻⁴⁰</span>
+                    </div>
+                    <p class="text-purple-100 text-sm mb-2">与所有能量耦合，极其微弱</p>
+                    <p class="text-green-300 text-xs font-medium">✓ 规律：已知（广义相对论）</p>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-white bg-opacity-10 p-4 rounded-lg">
+                <p class="text-purple-100 text-sm">
+                    <strong>注意：</strong>电磁力比引力强10³⁸倍！这解释了为什么我们感受不到单个原子的引力，但能感受到电力的影响。
+                </p>
+            </div>
+        </section>
+
+        <!-- Current Status -->
+        <section class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-md p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="mr-3">🎯</span>
+                物理学的现状（1960年代）
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <span class="text-2xl mr-4">✅</span>
+                    <div>
+                        <h4 class="font-bold text-green-700 mb-2">我们知道的：</h4>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• 原子核外的一切 —— 量子力学在此完全有效</li>
+                            <li>• 电磁相互作用 —— 量子电动力学极其成功</li>
+                            <li>• 引力定律 —— 广义相对论</li>
+                            <li>• 时空是相对论性的，可能引力与弯曲时空有关</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex items-start">
+                    <span class="text-2xl mr-4">❓</span>
+                    <div>
+                        <h4 class="font-bold text-orange-700 mb-2">我们不知道的：</h4>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• 核力的本质 —— 理论太难计算，无法验证</li>
+                            <li>• 30多种粒子之间的关系</li>
+                            <li>• 宇宙如何开始</li>
+                            <li>• 极小距离下时空的行为</li>
+                            <li>• 是否能最终统一所有现象</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border-l-4 border-orange-500">
+                    <p class="text-gray-700 leading-relaxed">
+                        <strong class="text-orange-700">Feynman的总结：</strong>
+                        "这就是我们今天物理学的可怕状况。在原子核外，我们似乎什么都知道；在原子核内，量子力学是有效的...但我们对亚原子粒子的相互关系缺乏完整理解，虽然我们已经知道它们之间存在一些非常令人惊讶的关系。我们似乎正逐步摸索着理解亚原子粒子的世界，但真的不知道还要走多远。"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="mr-3">✨</span>
+                核心要点总结
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">1️⃣</span>
+                    <p class="text-gray-700"><strong>科学方法</strong>：观察、推理、实验 —— 实验是检验真理的唯一标准</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">2️⃣</span>
+                    <p class="text-gray-700"><strong>电磁统一</strong>：电、磁、光都是电磁场的不同表现</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">3️⃣</span>
+                    <p class="text-gray-700"><strong>量子革命</strong>：微观世界完全不同于宏观，不确定性是本质特征</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">4️⃣</span>
+                    <p class="text-gray-700"><strong>波粒二象性</strong>：一切既是波也是粒子，量子力学统一了两者</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">5️⃣</span>
+                    <p class="text-gray-700"><strong>量子电动力学</strong>：解释几乎所有日常现象的伟大理论</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">6️⃣</span>
+                    <p class="text-gray-700"><strong>四种基本力</strong>：强、电磁、弱、引力 —— 统一是终极目标</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">7️⃣</span>
+                    <p class="text-gray-700"><strong>粒子动物园</strong>：30多种粒子等待统一理论</p>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                    <span class="text-2xl mr-3">8️⃣</span>
+                    <p class="text-gray-700"><strong>科学进程</strong>：不断发现、统一、再发现新现象的循环</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch1-atom.html" class="text-purple-200 hover:text-white transition-colors">← 第一章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+                <span class="text-purple-300">第三章 →</span>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第二章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+
+</body>
+</html>
