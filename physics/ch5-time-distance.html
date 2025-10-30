@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五章：时间与距离 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .key-point { border-left: 4px solid #667eea; background: linear-gradient(to right, rgba(102,126,234,.1), transparent); }
+        .atom-animation { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4 atom-animation">第五章：时间与距离</h1>
+                    <p class="text-xl text-purple-100">Time and Distance</p>
+                </div>
+                <div class="hidden md:block">
+                    <svg class="w-32 h-32 text-white opacity-20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a8 8 0 100 16 8 8 0 000-16z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <!-- 5-1 Motion -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <div class="flex items-start">
+                <div class="flex-shrink-0"><span class="text-5xl">⚙️</span></div>
+                <div class="ml-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">运动：从哲学到量化</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                        物理的进步依赖<strong>可量化的观测</strong>。伽利略用斜面实验数脉搏定时，发现位移与时间平方成正比：<span class="formula">D ∝ t²</span>，把“运动学”从思辨变为实验科学。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5-2 Time -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🕰️</span>时间：定义不易，度量为先</h3>
+            <p class="text-gray-700 mb-4">时间以<strong>周期现象</strong>度量：昼夜、沙漏、正午到正午。我们以“重复性相互校准”，并不追究某种绝对“本质定义”。</p>
+            <div class="bg-indigo-50 p-4 rounded-lg">
+                <p class="text-sm text-indigo-800">关键观念：不同“时钟”之间的<strong>一致性</strong>比定义本身更重要。</p>
+            </div>
+        </section>
+
+        <!-- 5-3 Short times -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">⏱️</span>短时标：从摆钟到电子振荡</h3>
+            <div class="text-gray-700 space-y-3">
+                <p>摆钟将小时细分为秒；电子振荡器将秒再细分到 <span class="formula">10^{-12}</span> 秒量级（配合示波器标定）。</p>
+                <p>更短时间可用“距离/速度”法定义：如 <span class="formula">\pi^0</span> 介子寿命约 <span class="formula">10^{-16}</span> 秒；新共振态寿命可达 <span class="formula">10^{-24}</span> 秒（光越过质子核的时间）。</p>
+            </div>
+        </section>
+
+        <!-- 5-4 Long times -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">📆</span>长时标：放射性“钟”</h3>
+            <div class="text-gray-700 space-y-3">
+                <p>半衰期 <span class="formula">T</span>：放射性按固定比例递减，余量 <span class="formula">(1/2)^{t/T}</span>。C-14 定年（<span class="formula">T≈5000</span> 年）可追溯至 <span class="formula">10^5</span> 年；U→Pb 定年给出岩石/地球年龄（约 45 亿年）。</p>
+                <p>宇宙学尺度：宇宙年龄 ~ <span class="formula">10^{10}–10^{10.1}</span> 年量级；“更早之前”是否有意义是开放问题。</p>
+            </div>
+        </section>
+
+        <!-- 5-5 Standards of time -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">⏰</span>时间单位与标准</h3>
+            <p class="text-gray-700 mb-3">地球自转并非绝对稳定；原子钟（氢微波跃迁等）提供 <span class="formula">10^{-9}</span> 甚至更高精度的标准，将成为“秒”的更佳基准。</p>
+        </section>
+
+        <!-- 5-6 Large distances -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">📐</span>大尺度距离：从三角测量到宇宙深处</h3>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                <div>
+                    <p class="mb-2"><strong>地月量级：</strong>基于三角测量（月距 ~ <span class="formula">4×10^{8}</span> m）。</p>
+                    <p class="mb-2"><strong>太阳系尺度：</strong>行星相对尺度 + 一次绝对标定（Eros/金星雷达测距）。</p>
+                    <p class="mb-2"><strong>恒星视差：</strong>地球公转提供基线，测近邻恒星距离。</p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>更远星系：</strong>颜色-本征亮度关系估测，或假设“类银河系”尺度配角径，得到距离（数千万至数十亿光年）。</p>
+                    <p class="text-sm text-gray-600">可观测宇宙尺度 ~ <span class="formula">10^{26}</span> m。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5-7 Short distances -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🔬</span>小尺度距离：从可见光到核半径</h3>
+            <div class="text-gray-700 space-y-3">
+                <p>光学显微镜受限于波长（~<span class="formula">5×10^{-7}</span> m）；电子显微镜推进到 ~<span class="formula">10^{-8}</span> m；X 射线衍射确定晶体原子间距（~<span class="formula">10^{-10}</span> m）。</p>
+                <p>原子核尺度以“有效截面”推得半径 <span class="formula">r</span>（<span class="formula">σ=πr^2</span>），典型 <span class="formula">r~1–6×10^{-15}</span> m（费米）。</p>
+            </div>
+            <div class="mt-4 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg text-sm text-gray-700">
+                <p class="mb-1"><strong>测量与极限：</strong>距离、时间依赖参考系（相对论）；绝对精确测量受量子不确定性限制：</p>
+                <p class="formula">Δx ≥ ħ/(2Δp)，  Δt ≥ ħ/(2ΔE)</p>
+                <p>要更精准地“何时”，就需牺牲对“发生了什么”（能量）的了解。</p>
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">✨</span>核心要点</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">1️⃣</span><p class="text-gray-700">时间与距离以<strong>可重复现象</strong>和<strong>几何/物理方法</strong>定义与标定。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">2️⃣</span><p class="text-gray-700">从摆钟到原子钟、从视差到雷达，尺度向两端延展。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">3️⃣</span><p class="text-gray-700">空间与时间依赖参考系；量子与相对论给出测量<strong>极限</strong>。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">4️⃣</span><p class="text-gray-700">科学重在一致性与可检验性，而非“辞典式定义”。</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch4-energy.html" class="text-purple-200 hover:text-white transition-colors">← 第四章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第五章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

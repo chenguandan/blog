@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六章：概率 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .key-point { border-left: 4px solid #667eea; background: linear-gradient(to right, rgba(102,126,234,.1), transparent); }
+        .atom-animation { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4 atom-animation">第六章：概率</h1>
+                    <p class="text-xl text-purple-100">Probability</p>
+                </div>
+                <div class="hidden md:block">
+                    <svg class="w-32 h-32 text-white opacity-20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a8 8 0 100 16 8 8 0 000-16z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <!-- Maxwell Quote -->
+        <section class="mb-8 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl shadow-md p-6">
+            <p class="text-center text-gray-700 text-lg">“这个世界真正的逻辑在于概率微积分。” — James Clerk Maxwell</p>
+        </section>
+
+        <!-- 6-1 Chance and likelihood -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <div class="flex items-start">
+                <div class="flex-shrink-0"><span class="text-5xl">🎲</span></div>
+                <div class="ml-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">机会与可能性：用概率做更好的猜测</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                        概率是当信息不完备时进行<strong>定量判断</strong>的语言。它描述在<strong>可重复的观测</strong>下，各种结果出现的相对频率。
+                    </p>
+                    <div class="bg-indigo-50 p-4 rounded-lg text-sm">
+                        <p class="mb-1"><span class="font-bold text-indigo-700">定义</span>（设想的重复试验）：<span class="formula">P(A) = N_A / N</span>，其中 <span class="formula">N_A</span> 为最可能出现 A 的次数估计。</p>
+                        <p>等可能 m 种结果：<span class="formula">P(A)=1/m</span>。例如：盲抽 52 张牌某一特定牌的概率为 <span class="formula">1/52</span>。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6-2 Fluctuations -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">📈</span>波动：有限样本中的起伏</h3>
+            <p class="text-gray-700 mb-4">抛 30 次硬币，“最可能”是 15 次正面，但单次实验会围绕 15 出现波动；大量重复的分布由二项式给出：</p>
+            <div class="bg-cyan-50 p-4 rounded-lg mb-2">
+                <p class="formula text-cyan-800">P(k,n) = (n k) / 2^n</p>
+                <p class="text-sm text-gray-700">一般化：<span class="formula">P(k,n) = (n k) p^k (1-p)^{n-k}</span>（伯努利分布）。</p>
+            </div>
+            <p class="text-sm text-gray-600">样本标准偏差（正反等可能）：<span class="formula">(k - n/2)_\text{rms} \approx \sqrt{n}/2</span>。</p>
+        </section>
+
+        <!-- 6-3 Random walk -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🚶</span>随机游走：无规则中的规律</h3>
+            <p class="text-gray-700 mb-4">一步前或后等可能，走 N 步后净位移 D 的均方期望：</p>
+            <div class="bg-yellow-50 p-4 rounded-lg mb-2">
+                <p class="formula text-yellow-800">⟨D^2⟩ = N, D_\text{rms} = \sqrt{N}</p>
+            </div>
+            <p class="text-sm text-gray-600">与二项分布等价：<span class="formula">D = 2k - N</span>。应用：布朗运动、误差叠加。</p>
+        </section>
+
+        <!-- 6-4 Probability distribution -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">📊</span>概率密度与正态分布</h3>
+            <p class="text-gray-700 mb-3">步长有波动、但均方有限时，N 大时终点位置的分布趋于<strong>高斯分布</strong>：</p>
+            <div class="bg-purple-50 p-4 rounded-lg mb-2">
+                <p class="formula text-purple-800">p(x) = \dfrac{1}{\sigma\sqrt{2\pi}} e^{-x^2/(2\sigma^2)}, \sigma = \sqrt{N}\,S_\text{rms}</p>
+            </div>
+            <p class="text-sm text-gray-600">气体分子速率分布（麦克斯韦分布）亦需概率密度描述，曲线下的面积对应“期望数目”。</p>
+        </section>
+
+        <!-- 6-5 Uncertainty principle -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">⚛️</span>不确定性原理：概率是微观世界的必需</h3>
+            <div class="bg-rose-50 p-4 rounded-lg mb-2">
+                <p class="formula text-rose-800">[\Delta x]\,[\Delta v] \ge \dfrac{\hbar}{2m}</p>
+            </div>
+            <p class="text-gray-700 mb-3">位置与速度的概率密度不能同时任意窄。电子在原子中用“概率云”刻画，而非确定轨道。</p>
+            <div class="bg-white p-4 rounded-lg text-sm shadow-sm">
+                <p><strong>结论：</strong>概率并非权宜之计，而是对原子尺度自然规律的<strong>最精确</strong>表述方式。</p>
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">✨</span>核心要点</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">1️⃣</span><p class="text-gray-700">概率 = 设想的重复实验中的相对频率估计，依赖信息与等可能性。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">2️⃣</span><p class="text-gray-700">二项分布描述“是/否”类实验的次数分布，波动随 <span class="formula">\sqrt{n}</span> 缩放。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">3️⃣</span><p class="text-gray-700">随机游走的均方位移随步数线性增长，宏观扩散与微观误差皆然。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">4️⃣</span><p class="text-gray-700">量子不确定性使概率成为微观描述的根本，而非无奈。</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch5-time-distance.html" class="text-purple-200 hover:text-white transition-colors">← 第五章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第六章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

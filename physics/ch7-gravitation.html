@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第七章：引力理论 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .key-point { border-left: 4px solid #667eea; background: linear-gradient(to right, rgba(102,126,234,.1), transparent); }
+        .atom-animation { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4 atom-animation">第七章：引力理论</h1>
+                    <p class="text-xl text-purple-100">The Theory of Gravitation</p>
+                </div>
+                <div class="hidden md:block">
+                    <svg class="w-32 h-32 text-white opacity-20" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16z"/></svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <!-- 7-1 Planetary motions -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <div class="flex items-start">
+                <div class="flex-shrink-0"><span class="text-5xl">🪐</span></div>
+                <div class="ml-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">行星运动与万有引力的诞生</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">引力定律：<span class="formula">F = G\,m m'/r^2</span>。以观测取代争辩：第谷高精度星表 → 开普勒定律 → 牛顿动力学与引力统一。</p>
+                    <div class="key-point p-4 rounded-lg"><p class="text-gray-800">核心图景：自然以极简法则支配复杂天象，人类通过定量测量与演绎揭示法则。</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-2 Kepler laws -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">📐</span>开普勒三定律</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li><strong>椭圆轨道：</strong>太阳位于椭圆一焦点。</li>
+                <li><strong>面积定律：</strong>行星与太阳的连线在相等时间扫过相等面积（指示力指向太阳）。</li>
+                <li><strong>周期-半长轴关系：</strong><span class="formula">T \propto a^{3/2}</span>，跨行星的标度律。</li>
+            </ul>
+        </section>
+
+        <!-- 7-3 Dynamics development -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">⚙️</span>动力学奠基：惯性与向心</h3>
+            <p class="text-gray-700 mb-3">伽利略：<strong>惯性原理</strong>。牛顿：<strong>力致加速</strong>（方向改变需横向力）。行星无需切向“推动”，只需指向太阳的向心引力。</p>
+            <div class="bg-indigo-50 p-4 rounded-lg text-sm"><p class="formula text-indigo-800">\vec F = m\,\vec a</p></div>
+        </section>
+
+        <!-- 7-4 Newton law and consequences -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🧲</span>牛顿引力与推论</h3>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                <div>
+                    <p class="mb-2"><strong>月亮也在“下落”：</strong>偏离无力直线的量与地面自由落体一致 → <span class="formula">1/r^2</span> 规律验证。</p>
+                    <p class="mb-2"><strong>同一点发射不同初速：</strong>5 mi/s 得近地轨道；更快得更高轨道。</p>
+                    <p class="mb-2"><strong>潮汐：</strong>远/近侧相对不平衡，产生两处潮汐隆起。</p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>预测能力：</strong>椭圆轨道证明；行星彼此摄动引起轨道岁差与微小偏离。</p>
+                    <p class="mb-2"><strong>海王星的发现：</strong>由天王星异常 → 反推未知行星位置 → 观测证实。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-5 Universal gravitation at scales -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🌌</span>引力的普适性：从双星到星系团</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li><strong>双星轨道：</strong>相对运动呈椭圆（视线倾角致焦点偏移）。</li>
+                <li><strong>球状星团/星系/星系团：</strong>大尺度聚集显示引力长期作用。</li>
+                <li><strong>罗默测光行星卫星：</strong>光速有限解释“提前/滞后”。</li>
+            </ul>
+        </section>
+
+        <!-- 7-6 Cavendish -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">⚖️</span>Cavendish 扭秤：测得 G 与“称地”</h3>
+            <p class="text-gray-700 mb-3">首次直接测量小物体间引力，验证 <span class="formula">1/r^2</span>，得到引力常数：</p>
+            <div class="bg-yellow-50 p-4 rounded-lg"><p class="formula text-yellow-800">G ≈ 6.670 × 10^{-11}\;\text{N·m}^2/\text{kg}^2</p></div>
+            <p class="text-sm text-gray-600">结合地表重力可反推地球质量。</p>
+        </section>
+
+        <!-- 7-7 What is gravity? -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">❓</span>引力的“机制”？</h3>
+            <p class="text-gray-700 mb-3">历史上的粒子“推挤”模型会预言明显阻力，与观测矛盾。物理定律多具<strong>抽象-数学</strong>形态，无需具体“机械装置”。</p>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-sm"><p>电力与引力同为 <span class="formula">1/r^2</span>，但强度对比极端：电子间电斥/引力比 ≈ <span class="formula">4.17×10^{42}</span>。统一尝试仍未成功；“G 随宇宙年龄变动”的设想与太阳/地球条件相悖。</p></div>
+        </section>
+
+        <!-- 7-8 Gravity and relativity -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🛰️</span>引力与相对论</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>牛顿引力非瞬时；爱因斯坦修正为相对论引力，影响以光速传播。</li>
+                <li>能量等效质量：光路近太阳会偏折（已在日食观测中证实）。</li>
+                <li>等效原理：惯性质量 = 引力质量（厄特沃什/Dicke 实验到 1e-9 精度）。</li>
+                <li>量子引力：与量子力学兼容的完整理论仍未建立。</li>
+            </ul>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">✨</span>核心要点</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">1️⃣</span><p class="text-gray-700">开普勒三定律 + 牛顿动力学 ⇒ 万有引力 <span class="formula">F\propto 1/r^2</span>。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">2️⃣</span><p class="text-gray-700">引力普适：从月球潮汐到星系团聚集，统一解释。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">3️⃣</span><p class="text-gray-700">Cavendish 实验测得 G，使地球质量等量化。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">4️⃣</span><p class="text-gray-700">相对论修正、等效原理成立；量子引力仍是前沿难题。</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch6-probability.html" class="text-purple-200 hover:text-white transition-colors">← 第六章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第七章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

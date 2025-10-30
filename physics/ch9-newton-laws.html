@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第九章：牛顿动力学定律 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4">第九章：牛顿动力学定律</h1>
+                    <p class="text-xl text-purple-100">Newton’s Laws of Dynamics</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">9–1 动量与力</h2>
+            <p class="text-gray-700 mb-3">动量 p = m v。牛顿第二定律的普遍形式：</p>
+            <div class="bg-indigo-50 p-4 rounded-lg mb-2"><p class="formula text-indigo-800">F = d(mv)/dt；（常质量）⇒ F = ma</p></div>
+            <p class="text-sm text-gray-600">加速度既可改变速度大小，也可改变方向；匀速圆周的向心加速度 a=v²/R。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">9–2 速度与速率</h3>
+            <p class="text-gray-700">速度含方向，速率为大小。三分量：v_x=dx/dt, v_y=dy/dt, v_z=dz/dt；|v|=(v_x²+v_y²+v_z²)^{1/2}。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">9–3 分量形式</h3>
+            <div class="bg-white p-4 rounded-lg shadow-sm mb-2">
+                <p class="formula">F_x = m d²x/dt²，F_y = m d²y/dt²，F_z = m d²z/dt²</p>
+            </div>
+            <p class="text-gray-700">力与运动可在各方向独立分析；例如水平匀速、竖直自由落体相互独立。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">9–4 力从何来：重力与弹簧</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>近地重力：F=mg ⇒ x 方向 a=g，v_x=v_0+gt，x=x_0+v_0 t + ½ g t²。</li>
+                <li>弹簧：F=−kx ⇒ m d²x/dt² + kx=0 ⇒ 简谐振动 x=cos(ωt) 等（数值/解析皆可）。</li>
+            </ul>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">9–5/9–6 数值解法要义</h3>
+            <p class="text-gray-700 mb-2">以小步长 ϵ 迭代：
+                x(t+ϵ)=x(t)+ϵ v(t+ϵ/2)；v(t+ϵ/2)=v(t−ϵ/2)+ϵ a(t)。
+            </p>
+            <p class="text-sm text-gray-600">中点法显著提高精度；示例：谐振子与轨道近似（与解析解 x=cos t 符合）。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">9–7 行星运动的数值计算</h3>
+            <div class="bg-yellow-50 p-4 rounded-lg mb-2">
+                <p class="formula text-yellow-800">a_x=−x/r³，a_y=−y/r³，r=(x²+y²)^{1/2}</p>
+            </div>
+            <p class="text-gray-700">用小步积分可追踪椭圆轨道；扩展到 N 体：对每对 (i,j) 累加 −G m_j (r_i−r_j)/|r_i−r_j|³。</p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">核心要点</h2>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>牛顿第二定律最一般形式 F=d(mv)/dt。</li>
+                <li>分量法处理三维运动，独立叠加。</li>
+                <li>谐振子与轨道问题可用中点法高精数值解。</li>
+                <li>N 体问题可由计算机高精度模拟。</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch8-motion.html" class="text-purple-200 hover:text-white transition-colors">← 第八章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第九章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

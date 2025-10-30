@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第十章：动量守恒 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4">第十章：动量守恒</h1>
+                    <p class="text-xl text-purple-100">Conservation of Momentum</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">10–1 牛顿第三定律</h2>
+            <p class="text-gray-700 mb-3">相互作用力成对出现，大小相等、方向相反、共线（近似成立）。结合第二定律推出动量守恒。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">10–2 动量守恒定理</h3>
+            <div class="bg-indigo-50 p-4 rounded-lg mb-2">
+                <p class="formula text-indigo-800">dp_1/dt = −dp_2/dt ⇒ d(p_1+p_2)/dt=0</p>
+            </div>
+            <p class="text-gray-700">内部力总和不改变体系总动量；无外力时 Σ m_i v_i 常量。分量上分别守恒。</p>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">碰撞与相对性直观推演</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>等质量爆炸分离：±v；等质量对撞并粘：静止。</li>
+                <li>一维非对称：m 与 2m 粘连：v → v/3；一般结论 mv_1+M v_2 = (m+M) v’。</li>
+                <li>伽利略相对性：匀速参考系等效，用“跟车观察”化繁为简。</li>
+            </ul>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">10–4 动量与能量</h3>
+            <p class="text-gray-700 mb-2">弹性碰撞：动量与动能均守恒；非弹性：仅动量守恒，部分动能化为内能/热。</p>
+            <p class="text-gray-700">同质等质量弹性碰撞在一维中交换速度；分子碰撞近似完全弹性。</p>
+            <div class="bg-yellow-50 p-4 rounded-lg mt-2"><p class="text-sm text-yellow-800">火箭/后坐：喷出小质量 m 以大速度 V，主体 M 以 v = (m/M) V 反冲。</p></div>
+        </section>
+
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">10–5 相对论与量子修正</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>相对论动量：<span class="formula">p = m_0 v / \sqrt{1−v^2/c^2}</span>，依旧守恒。</li>
+                <li>场的动量：电磁场携带动量与能量；光压可测，保证总体守恒。</li>
+                <li>量子力学：粒子-波二象性下动量定义改变，但守恒律仍成立。</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">核心要点</h2>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>第三定律 + 第二定律 ⇒ 体系总动量守恒（无外力）。</li>
+                <li>粘连/爆炸/弹性碰撞皆可用守恒律快速求解。</li>
+                <li>相对论与量子理论中守恒律依旧成立，但动量定义更新。</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch9-newton-laws.html" class="text-purple-200 hover:text-white transition-colors">← 第九章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第十章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+

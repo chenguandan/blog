@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四章：能量守恒 - Feynman 物理学讲义</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); }
+        .key-point { border-left: 4px solid #667eea; background: linear-gradient(to right, rgba(102,126,234,.1), transparent); }
+        .atom-animation { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .content-wrapper { max-width: 1200px; }
+        .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 shadow-lg">
+        <div class="container mx-auto px-4 content-wrapper">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <a href="../index.html" class="text-purple-200 hover:text-white mr-4 transition-colors" aria-label="返回目录">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        </a>
+                        <span class="text-purple-200">返回目录</span>
+                    </div>
+                    <h1 class="text-5xl font-bold mb-4 atom-animation">第四章：能量守恒</h1>
+                    <p class="text-xl text-purple-100">Conservation of Energy</p>
+                </div>
+                <div class="hidden md:block">
+                    <svg class="w-32 h-32 text-white opacity-20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a8 8 0 100 16 8 8 0 000-16z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 content-wrapper">
+        <!-- 4-1 What is energy -->
+        <section class="mb-12 bg-white rounded-xl shadow-md p-8">
+            <div class="flex items-start">
+                <div class="flex-shrink-0"><span class="text-5xl">🔋</span></div>
+                <div class="ml-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">什么是能量？</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                        自然界存在一个<strong>从未发现例外</strong>的定律：能量守恒。它断言：存在一个数值（能量），无论自然界如何变化，其总和保持不变。这不是具体机制的描述，而是一个<strong>抽象的数学原则</strong>。
+                    </p>
+                    <div class="key-point p-4 rounded-lg mb-4">
+                        <p class="text-gray-800">“积木类比”：就像数清房间里看得见和看不见的积木，总数不变。能量也是如此：它有多种“形态”，需要把<strong>所有形态</strong>都计入，才能守恒。</p>
+                    </div>
+                    <p class="text-gray-700">常见形态：重力势能、动能、热能、弹性能、电能、化学能、辐射能、核能、质量能。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-2 Gravitational potential energy -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🪜</span>重力势能：从“无永动机”推导</h3>
+            <p class="text-gray-700 mb-4">用“可逆提重机”的思想（不可造永动机）可推出：所有可逆机器的最优效率相同，由此得到重力势能公式：</p>
+            <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                <p class="formula text-indigo-800">势能（近地） = 重量 × 高度</p>
+            </div>
+            <p class="text-sm text-gray-600">更一般地，能量变化 = 力 × 作用距离。此思想同样适用于电势能等。</p>
+            <div class="grid md:grid-cols-3 gap-4 mt-4 text-sm">
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <p class="font-bold text-gray-800 mb-1">斜面</p>
+                    <p class="text-gray-600">用能量守恒快速求平衡条件（无需分解力）。</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <p class="font-bold text-gray-800 mb-1">螺旋千斤顶</p>
+                    <p class="text-gray-600">手柄路程 × 力 = 负载上升高度 × 重量。</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <p class="font-bold text-gray-800 mb-1">虚功原理</p>
+                    <p class="text-gray-600">设想极小位移，令“重量 × 高度”总和不变，解静力平衡。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-3 Kinetic energy -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🏃</span>动能：由“可上升高度”定义</h3>
+            <p class="text-gray-700 mb-4">摆在最低点的动能等于它“还能上升的高度”对应的重力势能：</p>
+            <div class="bg-cyan-50 p-4 rounded-lg mb-4">
+                <p class="formula text-cyan-800">K.E. = W · h(V) = W · V² / (2g)</p>
+            </div>
+            <p class="text-sm text-gray-600">式中 W 为重量，g 为重力加速度。此公式在低速、近地情形近似有效，高速需相对论修正。</p>
+        </section>
+
+        <!-- 4-4 Other forms -->
+        <section class="section-card mb-8 bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🔄</span>其他形态与转化</h3>
+            <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                <div>
+                    <p class="mb-3"><strong>弹性能：</strong>拉伸/压缩弹簧储能，来回与动能互换；损失转为<strong>热能</strong>（原子“抖动”增加）。</p>
+                    <p class="mb-3"><strong>电能/辐射能：</strong>电荷做功、光是电磁场的振荡能量。</p>
+                    <p class="mb-3"><strong>化学能：</strong>来源于电子动能与电相互作用能（本质上仍归入电与动能）。</p>
+                </div>
+                <div>
+                    <p class="mb-3"><strong>核能：</strong>原子核内部结构变化释放能量（强相互作用，本质细节超出电与重力）。</p>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <p class="formula text-yellow-800">质能关系：E = m c²</p>
+                        <p class="text-sm text-gray-700 mt-1">粒子-反粒子湮灭释放定量辐射能；静止质量本身蕴含能量。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 bg-white p-4 rounded-lg shadow-sm text-sm text-gray-700">
+                <p class="mb-2"><strong>守恒律家族：</strong>能量、线动量、角动量。它们与“时空对称性”紧密相关（量子力学下更精确）。</p>
+                <p><strong>还原为“计数”的守恒：</strong>电荷守恒、重子数守恒、轻子数守恒。</p>
+            </div>
+        </section>
+
+        <!-- Thermodynamics & energy sources -->
+        <section class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="text-3xl mr-3">🔥</span>可用能与能量来源</h3>
+            <p class="text-gray-700 mb-3">守恒的是总能量；<strong>可用能</strong>受限于热力学与熵。海水的热运动很大，但难以组织成有用功。</p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <p class="font-bold text-gray-800">自然界的能源</p>
+                    <p class="text-gray-700">太阳（雨/风/生物质/煤）、铀、氢聚变（若可控）。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <p class="font-bold text-gray-800">愿景</p>
+                    <p class="text-gray-700">若实现可控聚变，极少量水即可满足巨大能耗需求。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-white rounded-xl shadow-md p-8 mt-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">✨</span>核心要点</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">1️⃣</span><p class="text-gray-700">能量是抽象的“总账”，形态可变、总量不变。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">2️⃣</span><p class="text-gray-700">重力势能：重量×高度；动能：W·V²/(2g)。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">3️⃣</span><p class="text-gray-700">能量方法统一解决斜面、杠杆、千斤顶与静力平衡。</p></div>
+                <div class="flex items-start bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg"><span class="text-2xl mr-3">4️⃣</span><p class="text-gray-700">可用能受热力学与熵限制，能源开发依赖物理突破。</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center content-wrapper">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="ch3-relations.html" class="text-purple-200 hover:text-white transition-colors">← 第三章</a>
+                <a href="../index.html" class="text-purple-200 hover:text-white transition-colors">返回目录</a>
+            </div>
+            <p class="text-purple-100">© Feynman 物理学讲义 - 第四章学习笔记</p>
+            <p class="text-purple-200 text-sm mt-2">The Feynman Lectures on Physics</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
